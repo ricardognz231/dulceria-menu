@@ -5,345 +5,418 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dulcinea · Gomitas y Dulces</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg-plum: #2B1B3D;
-    --bg-plum-light: #3D2952;
-    --bg-plum-lighter: #4A3363;
-    --pink: #FF4FA3;
-    --lime: #C4F135;
-    --sky: #4FD8FF;
-    --mango: #FFB23D;
-    --cream: #FFF8F0;
-    --cream-dim: #E4D9F0;
+    --paper: #F0DEB2;
+    --paper-2: #E6CE93;
+    --paper-3: #DCC07E;
+    --ink: #251506;
+    --cream: #FFF7E4;
+    --red: #C22A2A;
+    --red-dark: #8C1B1E;
+    --navy: #26406B;
+    --navy-dark: #1A2C4A;
+    --mustard: #E7A23A;
+    --mustard-dark: #B97826;
   }
 
   *{ box-sizing: border-box; margin:0; padding:0; }
 
   body{
-    background: var(--bg-plum);
-    color: var(--cream);
-    font-family: 'Nunito', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Luckiest Guy', cursive;
     -webkit-font-smoothing: antialiased;
+    position: relative;
   }
 
-  h1, h2, .price-tag{
-    font-family: 'Baloo 2', sans-serif;
+  /* subtle halftone / paper grain texture over everything */
+  body::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.05;
+    background-image: radial-gradient(circle, var(--ink) 1px, transparent 1.2px);
+    background-size: 6px 6px;
   }
 
-  /* ---------- HERO ---------- */
+  h1, h2, h3, p, span, button, a{
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 0.02em;
+  }
+
+  /* ================= LOGO ================= */
+  /* Reemplaza la línea de abajo por tu propio logo: cambia el src="" por la ruta de tu imagen */
+  .site-logo{
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    background: var(--cream);
+    object-fit: cover;
+    z-index: 20;
+  }
+
+  /* ================= FILM STRIP DIVIDER ================= */
+  .filmstrip{
+    height: 16px;
+    background: var(--ink);
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--cream) 0 10px,
+      var(--ink) 10px 22px
+    );
+  }
+
+  /* ================= HERO ================= */
   .hero{
     position: relative;
-    padding: 4.5rem 1.5rem 5.5rem;
+    padding: 4.2rem 1.5rem 3.6rem;
     text-align: center;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(255,79,163,0.18), transparent 40%),
-      radial-gradient(circle at 85% 15%, rgba(79,216,255,0.16), transparent 40%),
-      radial-gradient(circle at 50% 90%, rgba(196,241,53,0.10), transparent 45%),
-      var(--bg-plum);
     overflow: hidden;
+    background:
+      repeating-conic-gradient(from 0deg, rgba(37,21,6,0.05) 0deg 8deg, transparent 8deg 16deg),
+      var(--paper);
   }
 
   .hero .eyebrow{
     display: inline-block;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    font-size: 0.75rem;
-    color: var(--lime);
-    background: rgba(196,241,53,0.12);
-    border: 1px solid rgba(196,241,53,0.35);
-    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    color: var(--cream);
+    background: var(--red);
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 0.45rem 1.1rem;
     border-radius: 999px;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.6rem;
+    transform: rotate(-2deg);
   }
 
   .hero h1{
-    font-size: clamp(2.6rem, 7vw, 4.6rem);
-    font-weight: 800;
+    font-size: clamp(3rem, 9vw, 5.6rem);
     line-height: 1;
-    color: var(--cream);
-    text-shadow: 4px 4px 0 var(--pink);
-    letter-spacing: 0.02em;
+    color: var(--red);
+    -webkit-text-stroke: 3px var(--ink);
+    text-shadow:
+      5px 5px 0 var(--ink),
+      5px 5px 0 var(--ink);
+    letter-spacing: 0.04em;
   }
 
   .hero p{
-    max-width: 480px;
-    margin: 1.4rem auto 0;
+    max-width: 460px;
+    margin: 1.6rem auto 0;
+    font-family: 'Kalam', cursive;
     font-size: 1.05rem;
-    color: var(--cream-dim);
-    font-weight: 600;
+    font-weight: 700;
+    color: var(--ink);
   }
 
-  .scallop{
-    position: absolute;
-    left: 0; right: 0; bottom: -1px;
-    height: 34px;
-    background:
-      radial-gradient(circle at 17px 0, transparent 17px, var(--bg-plum-light) 17px);
-    background-size: 34px 34px;
-    background-position: 0 -17px;
-  }
-
-  /* ---------- MENU ---------- */
+  /* ================= MAIN ================= */
   main{
-    background: var(--bg-plum-light);
+    background: var(--paper-2);
     padding: 3rem 1.5rem 1rem;
+    border-top: 4px solid var(--ink);
+    border-bottom: 4px solid var(--ink);
   }
 
   .menu-wrap{
-    max-width: 920px;
+    max-width: 880px;
     margin: 0 auto;
   }
 
   .category{
-    margin-bottom: 3.4rem;
+    margin-bottom: 3.2rem;
   }
 
   .category-head{
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.3rem;
   }
 
-  .dot{
-    width: 14px;
-    height: 14px;
+  .badge-icon{
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    border: 3px solid var(--ink);
     flex-shrink: 0;
   }
 
   .category-head h2{
-    font-size: 1.55rem;
-    font-weight: 700;
-    color: var(--cream);
+    font-size: 1.6rem;
+    color: var(--ink);
   }
 
   .category-head .count{
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.8rem;
+    font-family: 'Kalam', cursive;
     font-weight: 700;
-    color: var(--bg-plum);
-    background: var(--cream-dim);
-    padding: 0.15rem 0.6rem;
+    font-size: 0.85rem;
+    color: var(--cream);
+    background: var(--ink);
+    padding: 0.2rem 0.7rem;
     border-radius: 999px;
     margin-left: auto;
-    opacity: 0.85;
   }
 
   .items{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 0.9rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
   }
 
-  /* ---------- CLICKABLE PRODUCT CARD ---------- */
+  /* ================= SHIRT-BUTTON PILL ITEM ================= */
   .item{
-    grid-column: span 1;
+    position: relative;
   }
 
   .item-btn{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    background: var(--bg-plum-lighter);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 1.1rem 1.2rem;
+    background: var(--cream);
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    padding: 0.6rem 1.2rem 0.6rem 0.6rem;
     cursor: pointer;
     text-align: left;
-    font-family: inherit;
-    color: inherit;
-    transition: transform 0.15s ease, border-color 0.15s ease;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.16s cubic-bezier(.34,1.56,.64,1),
+                box-shadow 0.16s cubic-bezier(.34,1.56,.64,1),
+                background 0.16s ease;
   }
 
   .item-btn:hover{
-    transform: translateY(-3px);
-    border-color: rgba(255,255,255,0.18);
+    background: #FFFCF3;
+  }
+
+  .item-btn:active,
+  .item.open .item-btn{
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--ink);
   }
 
   .item-btn:focus-visible{
-    outline: 2px solid var(--sky);
-    outline-offset: 2px;
+    outline: 3px dashed var(--navy);
+    outline-offset: 3px;
   }
 
-  .item.open .item-btn{
-    border-radius: 16px 16px 0 0;
-    border-bottom-color: transparent;
+  /* the button "face": mimics a sewn shirt button, sits at the left of the pill */
+  .button-face{
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 3px solid var(--ink);
+    background: radial-gradient(circle at 32% 28%, #ffffff, var(--face-color, var(--mustard)) 45%, var(--face-color-dark, var(--mustard-dark)) 100%);
+  }
+
+  .button-face .hole{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .button-face .hole:nth-child(1){ top: 13px; left: 13px; }
+  .button-face .hole:nth-child(2){ top: 13px; right: 13px; }
+  .button-face .hole:nth-child(3){ bottom: 13px; left: 13px; }
+  .button-face .hole:nth-child(4){ bottom: 13px; right: 13px; }
+
+  .button-face::before,
+  .button-face::after{
+    content:"";
+    position: absolute;
+    background: var(--ink);
+    opacity: 0.55;
+  }
+  .button-face::before{
+    width: 1.5px;
+    height: 16px;
+    top: 15px;
+    left: 15px;
+    transform: rotate(45deg);
+  }
+  .button-face::after{
+    width: 1.5px;
+    height: 16px;
+    top: 15px;
+    right: 15px;
+    transform: rotate(-45deg);
+  }
+
+  .item-info{
+    flex: 1;
+    min-width: 0;
   }
 
   .item-info h3{
-    font-family: 'Nunito', sans-serif;
     font-size: 1.02rem;
-    font-weight: 800;
-    color: var(--cream);
-    margin-bottom: 0.25rem;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
   }
 
   .item-info p{
-    font-size: 0.85rem;
-    color: var(--cream-dim);
-    opacity: 0.85;
-    font-weight: 400;
-  }
-
-  .item-right{
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    flex-shrink: 0;
+    font-family: 'Kalam', cursive;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--ink);
+    opacity: 0.65;
   }
 
   .price-tag{
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--bg-plum);
-    background: var(--lime);
-    padding: 0.25rem 0.7rem;
-    border-radius: 10px;
+    flex-shrink: 0;
+    font-size: 1rem;
+    color: var(--cream);
+    background: var(--face-color-dark, var(--mustard-dark));
+    border: 2px solid var(--ink);
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
     white-space: nowrap;
   }
 
-  .chevron{
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
+  /* ================= SLIDE-IN DETAIL (small pill, right to left) ================= */
+  .item-detail-wrap{
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    transition: max-height 0.35s cubic-bezier(.22,1,.36,1);
   }
 
-  .item.open .chevron{
-    transform: rotate(180deg);
+  .item.open .item-detail-wrap{
+    max-height: 60px;
+    margin-top: 0.5rem;
   }
 
   .item-detail{
-    max-height: 0;
-    overflow: hidden;
-    background: var(--bg-plum-lighter);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-top: none;
-    border-radius: 0 0 16px 16px;
-    transition: max-height 0.25s ease;
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 999px;
+    padding: 0.45rem 1.1rem;
+    font-family: 'Kalam', cursive;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transform: translateX(48px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(.22,1,.36,1), opacity 0.32s ease;
   }
 
   .item.open .item-detail{
-    max-height: 200px;
+    transform: translateX(0);
+    opacity: 1;
   }
 
-  .item-detail-inner{
-    padding: 0 1.2rem 1.1rem;
-    border-top: 1px dashed rgba(255,255,255,0.14);
-    padding-top: 0.9rem;
-    margin-top: -0.2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+  .item-detail b{
+    font-family: 'Luckiest Guy', cursive;
+    font-weight: 400;
+    color: var(--mustard);
   }
 
-  .detail-row{
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.88rem;
-    color: var(--cream-dim);
-  }
+  /* category face colors */
+  .cat-gomitas{ --face-color: #E8534F; --face-color-dark: var(--red-dark); }
+  .cat-dulces{ --face-color: #4E7BC4; --face-color-dark: var(--navy-dark); }
 
-  .detail-row span:last-child{
-    color: var(--cream);
-    font-weight: 700;
-  }
-
-  /* category color themes */
-  .cat-gomitas .dot{ background: var(--lime); }
-  .cat-gomitas .price-tag{ background: var(--lime); }
-  .cat-gomitas .chevron path{ stroke: var(--lime); }
-
-  .cat-dulces .dot{ background: var(--pink); }
-  .cat-dulces .price-tag{ background: var(--pink); }
-  .cat-dulces .chevron path{ stroke: var(--pink); }
-
-  /* ---------- PROXIMAMENTE ---------- */
+  /* ================= PROXIMAMENTE ================= */
   .soon-card{
     background: repeating-linear-gradient(
       135deg,
-      var(--bg-plum-lighter),
-      var(--bg-plum-lighter) 14px,
-      var(--bg-plum-light) 14px,
-      var(--bg-plum-light) 28px
+      var(--cream),
+      var(--cream) 12px,
+      var(--paper-3) 12px,
+      var(--paper-3) 24px
     );
-    border: 1px dashed rgba(255,255,255,0.25);
-    border-radius: 16px;
+    border: 3px dashed var(--ink);
+    border-radius: 20px;
     padding: 1.8rem 1.5rem;
     text-align: center;
   }
 
   .soon-card .soon-badge{
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    color: var(--mango);
-    background: rgba(255,178,61,0.14);
-    border: 1px solid rgba(255,178,61,0.4);
-    padding: 0.3rem 0.9rem;
+    font-size: 0.8rem;
+    color: var(--ink);
+    background: var(--mustard);
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 0.35rem 1rem;
     border-radius: 999px;
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
+    transform: rotate(1.5deg);
   }
 
   .soon-card p{
-    font-size: 1rem;
-    color: var(--cream);
+    font-family: 'Kalam', cursive;
+    font-size: 1.05rem;
     font-weight: 700;
+    color: var(--ink);
     max-width: 420px;
     margin: 0 auto;
     line-height: 1.5;
   }
 
-  .cat-soon .dot{ background: var(--mango); }
-
-  /* ---------- FOOTER ---------- */
+  /* ================= FOOTER ================= */
   footer{
     text-align: center;
-    padding: 2.6rem 1.5rem 3.2rem;
-    background: var(--bg-plum-light);
-    color: var(--cream-dim);
+    padding: 2.4rem 1.5rem 3rem;
+    background: var(--paper);
   }
 
   footer .note{
-    font-weight: 800;
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 1.2rem;
-    color: var(--cream);
-    margin-bottom: 0.4rem;
+    font-size: 1.3rem;
+    color: var(--red);
+    -webkit-text-stroke: 1.5px var(--ink);
+    margin-bottom: 0.5rem;
   }
 
   footer .sub{
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
     font-size: 0.85rem;
-    opacity: 0.75;
+    color: var(--ink);
+    opacity: 0.7;
   }
 
   @media (max-width: 480px){
-    .hero{ padding: 3.5rem 1.2rem 4.5rem; }
+    .hero{ padding: 4.6rem 1.2rem 3rem; }
+    .item-btn{ padding-right: 0.9rem; }
+    .price-tag{ font-size: 0.85rem; }
   }
 </style>
 </head>
 <body>
 
+  <img class="site-logo" src="" alt="Logo Dulcinea">
+
+  <div class="filmstrip"></div>
+
   <section class="hero">
     <span class="eyebrow">ABIERTO TODOS LOS DÍAS</span>
     <h1>DULCINEA</h1>
-    <p>Gomitas y dulces para endulzarte el día. Toca un producto para ver el detalle 🍬</p>
-    <div class="scallop"></div>
+    <p>Gomitas y dulces para endulzarte el día. Toca un botón para ver el detalle.</p>
   </section>
+
+  <div class="filmstrip"></div>
 
   <main>
     <div class="menu-wrap">
 
       <div class="category cat-gomitas">
         <div class="category-head">
-          <span class="dot"></span>
+          <span class="badge-icon" style="background: var(--face-color);"></span>
           <h2>Gomitas</h2>
           <span class="count">3 opciones</span>
         </div>
@@ -351,58 +424,43 @@
 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
-              <div class="item-info">
+              <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
+              <span class="item-info">
                 <h3>Gomitas sabor sandía</h3>
                 <p>Dulces, sin acidez</p>
-              </div>
-              <div class="item-right">
-                <span class="price-tag">$0.30</span>
-                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="var(--lime)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
+              </span>
+              <span class="price-tag">$0.30</span>
             </button>
-            <div class="item-detail">
-              <div class="item-detail-inner">
-                <div class="detail-row"><span>Unidades por bolsa</span><span>8 unidades</span></div>
-                <div class="detail-row"><span>Precio por bolsa</span><span>$0.30</span></div>
-              </div>
+            <div class="item-detail-wrap">
+              <div class="item-detail"><span><b>8</b> unidades</span><span><b>$0.30</b> la bolsa</span></div>
             </div>
           </div>
 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
-              <div class="item-info">
+              <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
+              <span class="item-info">
                 <h3>Gomitas sabor sandía ácida</h3>
                 <p>Con un toque ácido</p>
-              </div>
-              <div class="item-right">
-                <span class="price-tag">$0.35</span>
-                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="var(--lime)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
+              </span>
+              <span class="price-tag">$0.35</span>
             </button>
-            <div class="item-detail">
-              <div class="item-detail-inner">
-                <div class="detail-row"><span>Unidades por bolsa</span><span>7 unidades</span></div>
-                <div class="detail-row"><span>Precio por bolsa</span><span>$0.35</span></div>
-              </div>
+            <div class="item-detail-wrap">
+              <div class="item-detail"><span><b>7</b> unidades</span><span><b>$0.35</b> la bolsa</span></div>
             </div>
           </div>
 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
-              <div class="item-info">
+              <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
+              <span class="item-info">
                 <h3>Gomitas sabor cereza</h3>
                 <p>Sabor intenso y frutal</p>
-              </div>
-              <div class="item-right">
-                <span class="price-tag">$0.25</span>
-                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="var(--lime)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
+              </span>
+              <span class="price-tag">$0.25</span>
             </button>
-            <div class="item-detail">
-              <div class="item-detail-inner">
-                <div class="detail-row"><span>Unidades por bolsa</span><span>5 unidades</span></div>
-                <div class="detail-row"><span>Precio por bolsa</span><span>$0.25</span></div>
-              </div>
+            <div class="item-detail-wrap">
+              <div class="item-detail"><span><b>5</b> unidades</span><span><b>$0.25</b> la bolsa</span></div>
             </div>
           </div>
 
@@ -411,7 +469,7 @@
 
       <div class="category cat-dulces">
         <div class="category-head">
-          <span class="dot"></span>
+          <span class="badge-icon" style="background: var(--face-color);"></span>
           <h2>Dulces</h2>
           <span class="count">1 opción</span>
         </div>
@@ -419,20 +477,15 @@
 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
-              <div class="item-info">
+              <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
+              <span class="item-info">
                 <h3>Chiclín de menta</h3>
                 <p>Frescura clásica de menta</p>
-              </div>
-              <div class="item-right">
-                <span class="price-tag">$0.25</span>
-                <svg class="chevron" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="var(--pink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
+              </span>
+              <span class="price-tag">$0.25</span>
             </button>
-            <div class="item-detail">
-              <div class="item-detail-inner">
-                <div class="detail-row"><span>Unidades por bolsa</span><span>5 unidades</span></div>
-                <div class="detail-row"><span>Precio por bolsa</span><span>$0.25</span></div>
-              </div>
+            <div class="item-detail-wrap">
+              <div class="item-detail"><span><b>5</b> unidades</span><span><b>$0.25</b> la bolsa</span></div>
             </div>
           </div>
 
@@ -441,7 +494,7 @@
 
       <div class="category cat-soon">
         <div class="category-head">
-          <span class="dot"></span>
+          <span class="badge-icon" style="background: var(--mustard);"></span>
           <h2>Próximamente</h2>
         </div>
         <div class="soon-card">
@@ -453,8 +506,10 @@
     </div>
   </main>
 
+  <div class="filmstrip"></div>
+
   <footer>
-    <p class="note">¿Antojo de algo dulce? 🍭</p>
+    <p class="note">¿Antojo de algo dulce?</p>
     <p class="sub">Precios en dólares · Menú sujeto a disponibilidad del día</p>
   </footer>
 
@@ -463,6 +518,13 @@
       btn.addEventListener('click', function(){
         var item = btn.closest('.item');
         var isOpen = item.classList.contains('open');
+
+        document.querySelectorAll('.item.open').forEach(function(openItem){
+          if (openItem !== item) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.item-btn').setAttribute('aria-expanded', 'false');
+          }
+        });
 
         item.classList.toggle('open', !isOpen);
         btn.setAttribute('aria-expanded', String(!isOpen));
