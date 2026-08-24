@@ -43,25 +43,15 @@
     background-size: 6px 6px;
   }
 
-  h1, h2, h3, p, span, button, a{
+  h1, h2{
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 0.02em;
   }
 
-  /* ================= LOGO ================= */
-  /* Reemplaza la línea de abajo por tu propio logo: cambia el src="" por la ruta de tu imagen */
-  .site-logo{
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    border: 3px solid var(--ink);
-    box-shadow: 3px 3px 0 var(--ink);
-    background: var(--cream);
-    object-fit: cover;
-    z-index: 20;
+  h3, p, span, button, a{
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+    letter-spacing: 0.01em;
   }
 
   /* ================= FILM STRIP DIVIDER ================= */
@@ -103,10 +93,10 @@
     font-size: clamp(3rem, 9vw, 5.6rem);
     line-height: 1;
     color: var(--red);
-    -webkit-text-stroke: 3px var(--ink);
+    -webkit-text-stroke: 1.5px var(--ink);
     text-shadow:
-      5px 5px 0 var(--ink),
-      5px 5px 0 var(--ink);
+      4px 4px 0 var(--ink),
+      4px 4px 0 var(--ink);
     letter-spacing: 0.04em;
   }
 
@@ -261,26 +251,29 @@
   }
 
   .item-info h3{
-    font-size: 1.02rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
     color: var(--ink);
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.2rem;
   }
 
   .item-info p{
     font-family: 'Kalam', cursive;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     font-weight: 700;
+    letter-spacing: 0.02em;
     color: var(--ink);
     opacity: 0.65;
   }
 
   .price-tag{
     flex-shrink: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
     color: var(--cream);
     background: var(--face-color-dark, var(--mustard-dark));
     border: 2px solid var(--ink);
-    padding: 0.3rem 0.7rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 999px;
     white-space: nowrap;
   }
@@ -310,6 +303,7 @@
     font-family: 'Kalam', cursive;
     font-size: 0.85rem;
     font-weight: 700;
+    letter-spacing: 0.02em;
     transform: translateX(48px);
     opacity: 0;
     transition: transform 0.4s cubic-bezier(.22,1,.36,1), opacity 0.32s ease;
@@ -331,41 +325,16 @@
   .cat-dulces{ --face-color: #4E7BC4; --face-color-dark: var(--navy-dark); }
 
   /* ================= PROXIMAMENTE ================= */
-  .soon-card{
-    background: repeating-linear-gradient(
-      135deg,
-      var(--cream),
-      var(--cream) 12px,
-      var(--paper-3) 12px,
-      var(--paper-3) 24px
-    );
-    border: 3px dashed var(--ink);
-    border-radius: 20px;
-    padding: 1.8rem 1.5rem;
-    text-align: center;
+  .cat-soon{ --face-color: var(--mustard); --face-color-dark: var(--mustard-dark); }
+
+  .soon-btn{
+    cursor: default;
   }
 
-  .soon-card .soon-badge{
-    display: inline-block;
-    font-size: 0.8rem;
-    color: var(--ink);
-    background: var(--mustard);
-    border: 3px solid var(--ink);
-    box-shadow: 3px 3px 0 var(--ink);
-    padding: 0.35rem 1rem;
-    border-radius: 999px;
-    margin-bottom: 1rem;
-    transform: rotate(1.5deg);
-  }
-
-  .soon-card p{
-    font-family: 'Kalam', cursive;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--ink);
-    max-width: 420px;
-    margin: 0 auto;
-    line-height: 1.5;
+  .soon-btn:active,
+  .soon-btn.no-press{
+    transform: none;
+    box-shadow: 4px 4px 0 var(--ink);
   }
 
   /* ================= FOOTER ================= */
@@ -376,9 +345,10 @@
   }
 
   footer .note{
+    font-family: 'Luckiest Guy', cursive;
     font-size: 1.3rem;
     color: var(--red);
-    -webkit-text-stroke: 1.5px var(--ink);
+    -webkit-text-stroke: 0.8px var(--ink);
     margin-bottom: 0.5rem;
   }
 
@@ -398,8 +368,6 @@
 </style>
 </head>
 <body>
-
-  <img class="site-logo" src="" alt="Logo Dulcinea">
 
   <div class="filmstrip"></div>
 
@@ -494,12 +462,22 @@
 
       <div class="category cat-soon">
         <div class="category-head">
-          <span class="badge-icon" style="background: var(--mustard);"></span>
+          <span class="badge-icon" style="background: var(--face-color);"></span>
           <h2>Próximamente</h2>
         </div>
-        <div class="soon-card">
-          <span class="soon-badge">MUY PRONTO</span>
-          <p>Próximamente: chocolates, galletas y bebidas. Te esperamos con ansias.</p>
+        <div class="items">
+
+          <div class="item">
+            <div class="item-btn soon-btn no-press">
+              <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
+              <span class="item-info">
+                <h3>Chocolates, galletas y bebidas</h3>
+                <p>Te esperamos con ansias</p>
+              </span>
+              <span class="price-tag">PRONTO</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
