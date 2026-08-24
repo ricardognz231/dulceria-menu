@@ -20,9 +20,9 @@
     --mustard: #E7A23A;
     --mustard-dark: #B97826;
   }
-
+ 
   *{ box-sizing: border-box; margin:0; padding:0; }
-
+ 
   body{
     background: var(--paper);
     color: var(--ink);
@@ -30,7 +30,7 @@
     -webkit-font-smoothing: antialiased;
     position: relative;
   }
-
+ 
   /* subtle halftone / paper grain texture over everything */
   body::before{
     content:"";
@@ -42,18 +42,18 @@
     background-image: radial-gradient(circle, var(--ink) 1px, transparent 1.2px);
     background-size: 6px 6px;
   }
-
+ 
   h1, h2{
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 0.02em;
   }
-
+ 
   h3, p, span, button, a{
     font-family: 'Kalam', cursive;
     font-weight: 700;
     letter-spacing: 0.01em;
   }
-
+ 
   /* ================= FILM STRIP DIVIDER ================= */
   .filmstrip{
     height: 16px;
@@ -64,7 +64,7 @@
       var(--ink) 10px 22px
     );
   }
-
+ 
   /* ================= HERO ================= */
   .hero{
     position: relative;
@@ -75,7 +75,7 @@
       repeating-conic-gradient(from 0deg, rgba(37,21,6,0.05) 0deg 8deg, transparent 8deg 16deg),
       var(--paper);
   }
-
+ 
   .hero .eyebrow{
     display: inline-block;
     font-size: 0.85rem;
@@ -88,7 +88,7 @@
     margin-bottom: 1.6rem;
     transform: rotate(-2deg);
   }
-
+ 
   .hero h1{
     font-size: clamp(3rem, 9vw, 5.6rem);
     line-height: 1;
@@ -99,7 +99,7 @@
       4px 4px 0 var(--ink);
     letter-spacing: 0.04em;
   }
-
+ 
   .hero p{
     max-width: 460px;
     margin: 1.6rem auto 0;
@@ -108,7 +108,7 @@
     font-weight: 700;
     color: var(--ink);
   }
-
+ 
   /* ================= MAIN ================= */
   main{
     background: var(--paper-2);
@@ -116,23 +116,23 @@
     border-top: 4px solid var(--ink);
     border-bottom: 4px solid var(--ink);
   }
-
+ 
   .menu-wrap{
     max-width: 880px;
     margin: 0 auto;
   }
-
+ 
   .category{
     margin-bottom: 3.2rem;
   }
-
+ 
   .category-head{
     display: flex;
     align-items: center;
     gap: 0.8rem;
     margin-bottom: 1.3rem;
   }
-
+ 
   .badge-icon{
     width: 30px;
     height: 30px;
@@ -140,12 +140,12 @@
     border: 3px solid var(--ink);
     flex-shrink: 0;
   }
-
+ 
   .category-head h2{
     font-size: 1.6rem;
     color: var(--ink);
   }
-
+ 
   .category-head .count{
     font-family: 'Kalam', cursive;
     font-weight: 700;
@@ -156,18 +156,18 @@
     border-radius: 999px;
     margin-left: auto;
   }
-
+ 
   .items{
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
   }
-
+ 
   /* ================= SHIRT-BUTTON PILL ITEM ================= */
   .item{
     position: relative;
   }
-
+ 
   .item-btn{
     width: 100%;
     display: flex;
@@ -184,22 +184,22 @@
                 box-shadow 0.16s cubic-bezier(.34,1.56,.64,1),
                 background 0.16s ease;
   }
-
+ 
   .item-btn:hover{
     background: #FFFCF3;
   }
-
+ 
   .item-btn:active,
   .item.open .item-btn{
     transform: translate(3px, 3px);
     box-shadow: 1px 1px 0 var(--ink);
   }
-
+ 
   .item-btn:focus-visible{
     outline: 3px dashed var(--navy);
     outline-offset: 3px;
   }
-
+ 
   /* the button "face": mimics a sewn shirt button, sits at the left of the pill */
   .button-face{
     position: relative;
@@ -210,7 +210,7 @@
     border: 3px solid var(--ink);
     background: radial-gradient(circle at 32% 28%, #ffffff, var(--face-color, var(--mustard)) 45%, var(--face-color-dark, var(--mustard-dark)) 100%);
   }
-
+ 
   .button-face .hole{
     position: absolute;
     width: 5px;
@@ -222,7 +222,7 @@
   .button-face .hole:nth-child(2){ top: 13px; right: 13px; }
   .button-face .hole:nth-child(3){ bottom: 13px; left: 13px; }
   .button-face .hole:nth-child(4){ bottom: 13px; right: 13px; }
-
+ 
   .button-face::before,
   .button-face::after{
     content:"";
@@ -244,19 +244,19 @@
     right: 15px;
     transform: rotate(-45deg);
   }
-
+ 
   .item-info{
     flex: 1;
     min-width: 0;
   }
-
+ 
   .item-info h3{
     font-size: 1.05rem;
     letter-spacing: 0.03em;
     color: var(--ink);
     margin-bottom: 0.2rem;
   }
-
+ 
   .item-info p{
     font-family: 'Kalam', cursive;
     font-size: 0.85rem;
@@ -265,7 +265,7 @@
     color: var(--ink);
     opacity: 0.65;
   }
-
+ 
   .price-tag{
     flex-shrink: 0;
     font-size: 0.95rem;
@@ -277,7 +277,7 @@
     border-radius: 999px;
     white-space: nowrap;
   }
-
+ 
   /* ================= SLIDE-IN DETAIL (small pill, right to left) ================= */
   .item-detail-wrap{
     max-height: 0;
@@ -286,12 +286,12 @@
     justify-content: flex-end;
     transition: max-height 0.35s cubic-bezier(.22,1,.36,1);
   }
-
+ 
   .item.open .item-detail-wrap{
     max-height: 60px;
     margin-top: 0.5rem;
   }
-
+ 
   .item-detail{
     display: flex;
     gap: 0.9rem;
@@ -308,42 +308,42 @@
     opacity: 0;
     transition: transform 0.4s cubic-bezier(.22,1,.36,1), opacity 0.32s ease;
   }
-
+ 
   .item.open .item-detail{
     transform: translateX(0);
     opacity: 1;
   }
-
+ 
   .item-detail b{
     font-family: 'Luckiest Guy', cursive;
     font-weight: 400;
     color: var(--mustard);
   }
-
+ 
   /* category face colors */
   .cat-gomitas{ --face-color: #E8534F; --face-color-dark: var(--red-dark); }
   .cat-dulces{ --face-color: #4E7BC4; --face-color-dark: var(--navy-dark); }
-
+ 
   /* ================= PROXIMAMENTE ================= */
   .cat-soon{ --face-color: var(--mustard); --face-color-dark: var(--mustard-dark); }
-
+ 
   .soon-btn{
     cursor: default;
   }
-
+ 
   .soon-btn:active,
   .soon-btn.no-press{
     transform: none;
     box-shadow: 4px 4px 0 var(--ink);
   }
-
+ 
   /* ================= FOOTER ================= */
   footer{
     text-align: center;
     padding: 2.4rem 1.5rem 3rem;
     background: var(--paper);
   }
-
+ 
   footer .note{
     font-family: 'Luckiest Guy', cursive;
     font-size: 1.3rem;
@@ -351,7 +351,7 @@
     -webkit-text-stroke: 0.8px var(--ink);
     margin-bottom: 0.5rem;
   }
-
+ 
   footer .sub{
     font-family: 'Kalam', cursive;
     font-weight: 700;
@@ -359,7 +359,7 @@
     color: var(--ink);
     opacity: 0.7;
   }
-
+ 
   @media (max-width: 480px){
     .hero{ padding: 4.6rem 1.2rem 3rem; }
     .item-btn{ padding-right: 0.9rem; }
@@ -368,20 +368,20 @@
 </style>
 </head>
 <body>
-
+ 
   <div class="filmstrip"></div>
-
+ 
   <section class="hero">
     <span class="eyebrow">ABIERTO TODOS LOS DÍAS</span>
     <h1>DULCINEA</h1>
     <p>Gomitas y dulces para endulzarte el día. Toca un botón para ver el detalle.</p>
   </section>
-
+ 
   <div class="filmstrip"></div>
-
+ 
   <main>
     <div class="menu-wrap">
-
+ 
       <div class="category cat-gomitas">
         <div class="category-head">
           <span class="badge-icon" style="background: var(--face-color);"></span>
@@ -389,7 +389,7 @@
           <span class="count">3 opciones</span>
         </div>
         <div class="items">
-
+ 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
               <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
@@ -403,7 +403,7 @@
               <div class="item-detail"><span><b>8</b> unidades</span><span><b>$0.30</b> la bolsa</span></div>
             </div>
           </div>
-
+ 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
               <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
@@ -417,7 +417,7 @@
               <div class="item-detail"><span><b>7</b> unidades</span><span><b>$0.35</b> la bolsa</span></div>
             </div>
           </div>
-
+ 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
               <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
@@ -431,10 +431,10 @@
               <div class="item-detail"><span><b>5</b> unidades</span><span><b>$0.25</b> la bolsa</span></div>
             </div>
           </div>
-
+ 
         </div>
       </div>
-
+ 
       <div class="category cat-dulces">
         <div class="category-head">
           <span class="badge-icon" style="background: var(--face-color);"></span>
@@ -442,7 +442,7 @@
           <span class="count">1 opción</span>
         </div>
         <div class="items">
-
+ 
           <div class="item">
             <button class="item-btn" aria-expanded="false">
               <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
@@ -456,17 +456,17 @@
               <div class="item-detail"><span><b>5</b> unidades</span><span><b>$0.25</b> la bolsa</span></div>
             </div>
           </div>
-
+ 
         </div>
       </div>
-
+ 
       <div class="category cat-soon">
         <div class="category-head">
           <span class="badge-icon" style="background: var(--face-color);"></span>
           <h2>Próximamente</h2>
         </div>
         <div class="items">
-
+ 
           <div class="item">
             <div class="item-btn soon-btn no-press">
               <span class="button-face"><span class="hole"></span><span class="hole"></span><span class="hole"></span><span class="hole"></span></span>
@@ -477,38 +477,39 @@
               <span class="price-tag">PRONTO</span>
             </div>
           </div>
-
+ 
         </div>
       </div>
-
+ 
     </div>
   </main>
-
+ 
   <div class="filmstrip"></div>
-
+ 
   <footer>
     <p class="note">¿Antojo de algo dulce?</p>
     <p class="sub">Precios en dólares · Menú sujeto a disponibilidad del día</p>
   </footer>
-
+ 
   <script>
     document.querySelectorAll('.item-btn').forEach(function(btn){
       btn.addEventListener('click', function(){
         var item = btn.closest('.item');
         var isOpen = item.classList.contains('open');
-
+ 
         document.querySelectorAll('.item.open').forEach(function(openItem){
           if (openItem !== item) {
             openItem.classList.remove('open');
             openItem.querySelector('.item-btn').setAttribute('aria-expanded', 'false');
           }
         });
-
+ 
         item.classList.toggle('open', !isOpen);
         btn.setAttribute('aria-expanded', String(!isOpen));
       });
     });
   </script>
-
+ 
 </body>
 </html>
+ 
