@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Golosería · Menú de Dulces y Gomitas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-plum: #2B1B3D;
+    --bg-plum-light: #3D2952;
+    --bg-plum-lighter: #4A3363;
+    --pink: #FF4FA3;
+    --lime: #C4F135;
+    --sky: #4FD8FF;
+    --mango: #FFB23D;
+    --cream: #FFF8F0;
+    --cream-dim: #E4D9F0;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  body{
+    background: var(--bg-plum);
+    color: var(--cream);
+    font-family: 'Nunito', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, .price-tag{
+    font-family: 'Baloo 2', sans-serif;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position: relative;
+    padding: 4.5rem 1.5rem 5.5rem;
+    text-align: center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,79,163,0.18), transparent 40%),
+      radial-gradient(circle at 85% 15%, rgba(79,216,255,0.16), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(196,241,53,0.10), transparent 45%),
+      var(--bg-plum);
+    overflow: hidden;
+  }
+
+  .hero .eyebrow{
+    display: inline-block;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    color: var(--lime);
+    background: rgba(196,241,53,0.12);
+    border: 1px solid rgba(196,241,53,0.35);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--cream);
+    text-shadow: 4px 4px 0 var(--pink);
+  }
+
+  .hero h1 span{
+    color: var(--mango);
+    text-shadow: 4px 4px 0 var(--sky);
+  }
+
+  .hero p{
+    max-width: 480px;
+    margin: 1.4rem auto 0;
+    font-size: 1.05rem;
+    color: var(--cream-dim);
+    font-weight: 600;
+  }
+
+  /* scalloped candy-wrapper edge, signature element */
+  .scallop{
+    position: absolute;
+    left: 0; right: 0; bottom: -1px;
+    height: 34px;
+    background:
+      radial-gradient(circle at 17px 0, transparent 17px, var(--bg-plum-light) 17px);
+    background-size: 34px 34px;
+    background-position: 0 -17px;
+  }
+
+  /* ---------- MENU ---------- */
+  main{
+    background: var(--bg-plum-light);
+    padding: 3rem 1.5rem 1rem;
+  }
+
+  .menu-wrap{
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .category{
+    margin-bottom: 3.4rem;
+  }
+
+  .category-head{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .dot{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .category-head h2{
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--cream);
+  }
+
+  .category-head .count{
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--bg-plum);
+    background: var(--cream-dim);
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    margin-left: auto;
+    opacity: 0.85;
+  }
+
+  .items{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .item{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--bg-plum-lighter);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 1.1rem 1.2rem;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+
+  .item:hover{
+    transform: translateY(-3px);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  .item-info h3{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 800;
+    color: var(--cream);
+    margin-bottom: 0.25rem;
+  }
+
+  .item-info p{
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+    opacity: 0.85;
+    font-weight: 400;
+  }
+
+  .price-tag{
+    flex-shrink: 0;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--bg-plum);
+    background: var(--lime);
+    padding: 0.25rem 0.7rem;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  /* category color themes */
+  .cat-gomitas .dot{ background: var(--lime); }
+  .cat-gomitas .price-tag{ background: var(--lime); }
+
+  .cat-chocolates .dot{ background: var(--mango); }
+  .cat-chocolates .price-tag{ background: var(--mango); }
+
+  .cat-acidos .dot{ background: var(--pink); }
+  .cat-acidos .price-tag{ background: var(--pink); }
+
+  .cat-paletas .dot{ background: var(--sky); }
+  .cat-paletas .price-tag{ background: var(--sky); }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align: center;
+    padding: 2.6rem 1.5rem 3.2rem;
+    background: var(--bg-plum-light);
+    color: var(--cream-dim);
+  }
+
+  footer .note{
+    font-weight: 800;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  footer .sub{
+    font-size: 0.85rem;
+    opacity: 0.75;
+  }
+
+  @media (max-width: 480px){
+    .hero{ padding: 3.5rem 1.2rem 4.5rem; }
+    .item{ flex-direction: row; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <span class="eyebrow">ABIERTO TODOS LOS DÍAS</span>
+    <h1>LA GOLOSER<span>Í</span>A</h1>
+    <p>Gomitas, chocolates y dulces ácidos para endulzarte el día. Elige tu favorito 🍬</p>
+    <div class="scallop"></div>
+  </section>
+
+  <main>
+    <div class="menu-wrap">
+
+      <div class="category cat-gomitas">
+        <div class="category-head">
+          <span class="dot"></span>
+          <h2>Gomitas</h2>
+          <span class="count">6 opciones</span>
+        </div>
+        <div class="items">
+          <div class="item">
+            <div class="item-info"><h3>Ositos de goma</h3><p>Mix clásico de sabores frutales</p></div>
+            <span class="price-tag">$1.25</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Aros de sandía</h3><p>Dulces por fuera, ácidos por dentro</p></div>
+            <span class="price-tag">$1.50</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Gusanitos de fresa</h3><p>Textura suave, cubierta de azúcar</p></div>
+            <span class="price-tag">$1.40</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Colmillos de vampiro</h3><p>Sabor a cereza, forma divertida</p></div>
+            <span class="price-tag">$1.60</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Botellitas de cola</h3><p>Miniatura, sabor cola clásico</p></div>
+            <span class="price-tag">$1.30</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Bolsa mixta 250g</h3><p>Selección variada para compartir</p></div>
+            <span class="price-tag">$3.75</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="category cat-chocolates">
+        <div class="category-head">
+          <span class="dot"></span>
+          <h2>Chocolates</h2>
+          <span class="count">5 opciones</span>
+        </div>
+        <div class="items">
+          <div class="item">
+            <div class="item-info"><h3>Chocolate con leche</h3><p>Barra clásica 45g</p></div>
+            <span class="price-tag">$1.10</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Chocolate con almendras</h3><p>Crujiente, tostado al punto</p></div>
+            <span class="price-tag">$1.75</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Botones de colores</h3><p>Cubierta crocante multicolor</p></div>
+            <span class="price-tag">$1.20</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Trufas surtidas (4u)</h3><p>Relleno cremoso, caja pequeña</p></div>
+            <span class="price-tag">$3.20</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Chocolate blanco</h3><p>Suave y dulce, barra 40g</p></div>
+            <span class="price-tag">$1.15</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="category cat-acidos">
+        <div class="category-head">
+          <span class="dot"></span>
+          <h2>Dulces Ácidos</h2>
+          <span class="count">4 opciones</span>
+        </div>
+        <div class="items">
+          <div class="item">
+            <div class="item-info"><h3>Chamoy pica-pica</h3><p>Polvo ácido con chile suave</p></div>
+            <span class="price-tag">$1.00</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Cintas ácidas</h3><p>Sabor manzana verde, rollo largo</p></div>
+            <span class="price-tag">$1.35</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Caramelos explosivos</h3><p>Efecto pop al masticar</p></div>
+            <span class="price-tag">$0.90</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Polvo mágico + paleta</h3><p>Paleta para mojar en polvo ácido</p></div>
+            <span class="price-tag">$1.45</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="category cat-paletas">
+        <div class="category-head">
+          <span class="dot"></span>
+          <h2>Paletas y Chupetes</h2>
+          <span class="count">4 opciones</span>
+        </div>
+        <div class="items">
+          <div class="item">
+            <div class="item-info"><h3>Paleta de mazapán</h3><p>Sabor cacahuate, receta tradicional</p></div>
+            <span class="price-tag">$0.75</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Chupeta espiral</h3><p>Colores mezclados, sabor frutal</p></div>
+            <span class="price-tag">$0.65</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Paleta de tamarindo</h3><p>Dulce, salado y un toque picante</p></div>
+            <span class="price-tag">$0.85</span>
+          </div>
+          <div class="item">
+            <div class="item-info"><h3>Chupeta gigante</h3><p>Tamaño XL, ideal para compartir</p></div>
+            <span class="price-tag">$2.00</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p class="note">¿Antojo de algo dulce? 🍭</p>
+    <p class="sub">Precios en dólares · Menú sujeto a disponibilidad del día</p>
+  </footer>
+
+</body>
+</html>
